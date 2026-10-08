@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Takshi - Resume / Curriculum Vitae</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --secondary: #334155;
+      --accent: #2563eb;
+      --border: #e2e8f0;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background-color: var(--bg);
+      color: var(--primary);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .toolbar {
+      max-width: 820px;
+      margin: 0 auto 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .btn-back {
+      background: #e2e8f0;
+      color: #334155;
+    }
+    .btn-back:hover {
+      background: #cbd5e1;
+    }
+
+    .btn-print {
+      background: #2563eb;
+      color: #ffffff;
+    }
+    .btn-print:hover {
+      background: #1d4ed8;
+    }
+
+    .resume-sheet {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 48px 56px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    .resume-header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 28px;
+    }
+
+    .resume-name {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .resume-role {
+      font-size: 1.1rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .resume-contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.9rem;
+      color: var(--secondary);
+    }
+
+    .resume-contact-bar a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .resume-contact-bar a:hover {
+      text-decoration: underline;
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 800;
+      color: var(--primary);
+      border-bottom: 1.5px solid var(--border);
+      padding-bottom: 6px;
+      margin: 28px 0 16px;
+    }
+
+    .summary-text {
+      font-size: 0.96rem;
+      color: var(--secondary);
+      line-height: 1.65;
+    }
+
+    .timeline-block {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .timeline-entry {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .entry-main {
+      flex: 1;
+    }
+
+    .entry-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .entry-sub {
+      font-size: 0.92rem;
+      color: var(--secondary);
+    }
+
+    .entry-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .skills-cluster {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .skill-category {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      border-radius: 8px;
+    }
+
+    .skill-cat-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .skill-cat-items {
+      font-size: 0.85rem;
+      color: var(--secondary);
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: #ffffff;
+      }
+      .toolbar {
+        display: none;
+      }
+      .resume-sheet {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .resume-sheet {
+        padding: 24px 20px;
+      }
+      .timeline-entry {
+        flex-direction: column;
+        gap: 4px;
+      }
+      .skills-cluster {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <a href="index.html" class="btn btn-back">← Back to Portfolio</a>
+    <div style="display: flex; gap: 10px;">
+      <a href="assets/Takshi_Resume.pdf" download="Takshi_Resume.pdf" class="btn btn-back">Download Original PDF</a>
+      <button onclick="window.print()" class="btn btn-print">Print / Save as PDF</button>
+    </div>
+  </div>
+
+  <div class="resume-sheet">
+    <header class="resume-header">
+      <h1 class="resume-name">TAKSHI</h1>
+      <p class="resume-role">B.Tech in Computer Science & Engineering | Software Developer</p>
+      <div class="resume-contact-bar">
+        <span><strong>Email:</strong> <a href="mailto:takshi.26bcon0571@jecrcu.edu.in">takshi.26bcon0571@jecrcu.edu.in</a></span>
+        <span><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/takshi" target="_blank" rel="noopener">linkedin.com/in/takshi</a></span>
+        <span><strong>Education:</strong> JECRC University</span>
+      </div>
+    </header>
+
+    <section>
+      <h2 class="section-title">Professional Summary</h2>
+      <p class="summary-text">
+        I’m a B.Tech Computer Science & Engineering student. Whether I’m building projects, I thrive on precision, rapid strategy, and focus under pressure. I bridge logical thinking with functional application to build software that is clean, sharp, and effective.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Education</h2>
+      <div class="timeline-block">
+        <div class="timeline-entry">
+          <div class="entry-main">
+            <h3 class="entry-title">Bachelor of Technology (B.Tech) - Computer Science & Engineering</h3>
+            <p class="entry-sub">JECRC University • Jaipur</p>
+          </div>
+          <span class="entry-date">Pursuing</span>
+        </div>
+
+        <div class="timeline-entry">
+          <div class="entry-main">
+            <h3 class="entry-title">Senior Secondary School Examination (Class XII)</h3>
+            <p class="entry-sub">Higher Secondary Certificate</p>
+          </div>
+          <span class="entry-date">2025</span>
+        </div>
+
+        <div class="timeline-entry">
+          <div class="entry-main">
+            <h3 class="entry-title">Secondary School Examination (Class X)</h3>
+            <p class="entry-sub">Secondary School Certificate</p>
+          </div>
+          <span class="entry-date">2023</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Technical & Professional Competencies</h2>
+      <div class="skills-cluster">
+        <div class="skill-category">
+          <div class="skill-cat-title">Programming Logic</div>
+          <div class="skill-cat-items">Algorithmic problem-solving, structured logic design, control flow, data evaluation</div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-cat-title">Version Control (Git & GitHub)</div>
+          <div class="skill-cat-items">Repository management, clean commit workflow, branching strategy, team collaboration</div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-cat-title">Basic Web Fundamentals</div>
+          <div class="skill-cat-items">Semantic HTML5, CSS3 (Flexbox/Grid), JavaScript DOM manipulation, responsive UI</div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-cat-title">Technical Communication & Writing</div>
+          <div class="skill-cat-items">Architecture documentation, clear technical correspondence, structured reporting</div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-cat-title">Reasoning & Organizing Ability</div>
+          <div class="skill-cat-items">Analytical deduction, systematic task breakdown, workflow prioritization</div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-cat-title">Determination & Strategic Focus</div>
+          <div class="skill-cat-items">Grit and perseverance in debugging, calmness under deadline pressure, high-speed execution</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="timeline-block">
+        <div class="timeline-entry">
+          <div class="entry-main">
+            <h3 class="entry-title">Campus Tour & Academic Resource Hub</h3>
+            <p class="entry-sub">A responsive campus navigation and resource indexing portal enabling intuitive student directory lookups.</p>
+          </div>
+          <span class="entry-date">Interactive Web App</span>
+        </div>
+        <div class="timeline-entry">
+          <div class="entry-main">
+            <h3 class="entry-title">Algorithmic Path Finder & Logic Visualizer</h3>
+            <p class="entry-sub">Interactive simulator demonstrating pathfinding graph algorithms, dynamic obstacles, and step-by-step logic tracing.</p>
+          </div>
+          <span class="entry-date">Algorithmic Tool</span>
+        </div>
+        <div class="timeline-entry">
+          <div class="entry-main">
+            <h3 class="entry-title">GitFlow & Version Control Assistant</h3>
+            <p class="entry-sub">Developer workflow guide and visualizer for best Git practices and commit workflows.</p>
+          </div>
+          <span class="entry-date">Developer Tool</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Certifications</h2>
+      <div class="timeline-block">
+        <div class="timeline-entry">
+          <div class="entry-main">
+            <h3 class="entry-title">Foundations of Computer Science & Programming Logic</h3>
+            <p class="entry-sub">Core algorithmic thinking and structured problem formulation</p>
+          </div>
+          <span class="entry-date">Certified</span>
+        </div>
+        <div class="timeline-entry">
+          <div class="entry-main">
+            <h3 class="entry-title">Version Control with Git & GitHub</h3>
+            <p class="entry-sub">Branching, merge strategies, and modern collaborative development</p>
+          </div>
+          <span class="entry-date">Certified</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>
